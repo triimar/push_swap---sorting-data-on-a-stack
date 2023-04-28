@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:29:08 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/23 22:32:23 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/04/25 17:03:53 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,21 @@ void	sb(t_stack **stack_b)
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-	sa(stack_a);
-	sb(stack_b);
+	t_stack	*tmp;
+
+	if ((*stack_a) && (*stack_a)->next)
+	{
+		tmp = (*stack_a)->next;
+		(*stack_a)->next = (*stack_a)->next->next;
+		tmp->next = (*stack_a);
+		(*stack_a) = tmp;
+	}
+	if ((*stack_b) && (*stack_b)->next)
+	{
+		tmp = (*stack_b)->next;
+		(*stack_b)->next = (*stack_b)->next->next;
+		tmp->next = (*stack_b);
+		(*stack_b) = tmp;
+	}
 	ft_putendl_fd("ss", STDOUT_FILENO);
 }

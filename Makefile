@@ -6,16 +6,16 @@
 #    By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 17:14:41 by tmarts            #+#    #+#              #
-#    Updated: 2023/04/23 22:15:32 by tmarts           ###   ########.fr        #
+#    Updated: 2023/04/28 18:08:11 by tmarts           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= push_swap
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
-# CFLAGS += -fsanitize=address -g3
+CFLAGS += -fsanitize=address -g3
 LDFLAGS = -lm
-# LDFLAGS += -fsanitize=address -g3
+LDFLAGS += -fsanitize=address -g3
 LIBFT	= ./libft
 HEADERS = -I $(LIBFT)
 LIBS	= $(LIBFT)/libft.a
@@ -24,7 +24,10 @@ SRCS	= $(addprefix $(SRC_DIR)/,	\
 main.c \
 push_swap_parsing.c \
 push_swap_errors.c \
-swap.c)
+swap.c \
+push.c \
+rotate.c \
+reverse_rotate.c)
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -37,7 +40,7 @@ libft:
 	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) ${LDFLAGS}
 
 clean:
 	@rm -f $(OBJS)

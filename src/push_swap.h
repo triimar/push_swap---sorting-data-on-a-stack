@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:15:22 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/23 22:39:26 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/04/28 17:36:47 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef struct s_stack
 
 typedef struct s_inf
 {
-	int	elements;	
+	int		elements;	
+	t_stack	*tail;
 }		t_inf;
 
 /*   push_swap_errors.c   */
@@ -38,8 +39,15 @@ int		create_stack(t_stack **stack_a, t_inf *s_inf, char **argv);
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
 void	ss(t_stack **stack_a, t_stack **stack_b);
-/*   rotate.c   */
-/*   reverse_rotate.c   */
 /*   push.c   */
-
+void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b);
+/*   rotate.c   */
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+/*   reverse_rotate.c   */
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 #endif

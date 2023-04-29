@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:28:28 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/25 16:52:34 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/04/29 15:22:35 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	{
 		tmp = *stack_b;
 		*stack_b = (*stack_b)->next;
-		if (!stack_a)
+		if (!(*stack_a))
 		{
 			*stack_a = tmp;
 			(*stack_a)->next = NULL;
@@ -48,7 +48,7 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 	{
 		tmp = *stack_a;
 		*stack_a = (*stack_a)->next;
-		if (!stack_b)
+		if (!(*stack_b))
 		{
 			*stack_b = tmp;
 			(*stack_b)->next = NULL;
@@ -58,6 +58,6 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 			tmp->next = *stack_b;
 			*stack_b = tmp;
 		}
-		ft_putendl_fd("pa", STDOUT_FILENO);
+		ft_putendl_fd("pb", STDOUT_FILENO);
 	}
 }

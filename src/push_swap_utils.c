@@ -6,15 +6,15 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:16:04 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/29 17:02:50 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/04/30 19:03:15 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack **stack)
+void	free_stack(t_stc **stack)
 {
-	t_stack	*tmp;
+	t_stc	*tmp;
 
 	if (stack)
 	{

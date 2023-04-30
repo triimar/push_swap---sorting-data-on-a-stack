@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:30:35 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/28 17:36:57 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/04/30 19:03:15 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 
 // 3. rrr : rra and rrb at the same time.
 
-void	rra(t_stack **stack_a)
+void	rra(t_stc **stack_a)
 {
-	t_stack	*flip;
-	t_stack	*new_head;
+	t_stc	*flip;
+	t_stc	*new_head;
 
 	if ((*stack_a) && (*stack_a)->next)
 	{
@@ -38,10 +38,10 @@ void	rra(t_stack **stack_a)
 	}
 }
 
-void	rrb(t_stack **stack_b)
+void	rrb(t_stc **stack_b)
 {
-	t_stack	*flip;
-	t_stack	*new_head;
+	t_stc	*flip;
+	t_stc	*new_head;
 
 	if ((*stack_b) && (*stack_b)->next)
 	{
@@ -56,10 +56,10 @@ void	rrb(t_stack **stack_b)
 	}
 }
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+void	rrr(t_stc **stack_a, t_stc **stack_b)
 {
-	t_stack	*flip;
-	t_stack	*new_head;
+	t_stc	*flip;
+	t_stc	*new_head;
 
 	if ((*stack_a) && (*stack_a)->next)
 	{

@@ -6,34 +6,34 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:16:12 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/29 21:20:33 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/04/30 20:08:50 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	move(t_stack **stack_a, t_stack **stack_b)
+void	move(t_stc **stc_a, t_stc **stc_b)
 {
-	t_stack	*printer;
+	t_stc	*printer;
 
 	ft_putstr_fd("--A--\n", 1);
-		printer = *stack_a;
+		printer = *stc_a;
 	while (printer)
 	{
-		ft_putnbr_fd(printer->value, STDOUT_FILENO);
+		ft_putnbr_fd(printer->val, STDOUT_FILENO);
 		ft_putchar_fd('\n', 1);
 		printer = printer->next;
 	}
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	sb(stack_b);
-	pb(stack_a, stack_b);
-	sa(stack_a);
-	pa(stack_a, stack_b);
-	pa(stack_a, stack_b);
-	pa(stack_a, stack_b);
+	pb(stc_a, stc_b);
+	pb(stc_a, stc_b);
+	sb(stc_b);
+	pb(stc_a, stc_b);
+	sa(stc_a);
+	pa(stc_a, stc_b);
+	pa(stc_a, stc_b);
+	pa(stc_a, stc_b);
 	// ft_putstr_fd("--A--\n", 1);
-	// printer = *stack_a;
+	// printer = *stc_a;
 	// while (printer)
 	// {
 	// 	ft_putnbr_fd(printer->value, STDOUT_FILENO);
@@ -41,7 +41,7 @@ void	move(t_stack **stack_a, t_stack **stack_b)
 	// 	printer = printer->next;
 	// }
 	// ft_putstr_fd("--B--\n", 1);
-	// printer = *stack_b;
+	// printer = *stc_b;
 	// while (printer)
 	// {
 	// 	ft_putnbr_fd(printer->value, STDOUT_FILENO);
@@ -50,89 +50,45 @@ void	move(t_stack **stack_a, t_stack **stack_b)
 	// }
 }
 
-// int initial_check(char **argv)
-// {
-// 	int i;
-	
-// 	while (argv[i] != NULL)
-// 	{
-// 		ft_isdigit(argv[i][j] || argv[i][j] == ' ' ||)
-// 	}
-// }
-
-int	dup_check(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*flip;
-	int		i;
-	int		j;
-
-	current = (*stack)->next;
-	i = 1;
-	while (current)
-	{
-		flip = *stack;
-		j = 0;
-		while (j < i)
-		{
-			if (flip->value == current->value)
-				return (1);
-			flip = flip->next;
-			j++;
-		}	
-		current = current->next;
-		i++;
-	}
-	return (0);
-}
-
-int	order_check(t_stack **stack)
-{
-	t_stack	*current;
-	t_stack	*flip;
-
-	current = (*stack)->next;
-	flip = *stack;
-	while (current)
-	{
-		if (current->value < flip->value)
-			return (0);
-		else
-		{
-			current = current->next;
-			flip = flip->next;
-		}
-	}
-	return (1);
-}
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stc	*stc_a;
+	t_stc	*stc_b;
 	t_inf	s_inf;
+	t_stc	*printer;
 
-	stack_a = NULL;
-	stack_b = NULL;
+	stc_a = NULL;
+	stc_b = NULL;
 	if (argc >= 2)
 	{
 		if (argc == 2)
 		{
-			if (in_one_str(&stack_a, &s_inf, argv[1]) != 0)
+			if (in_one_str(&stc_a, &s_inf, argv[1]) != 0)
 				return (1);
 		}
 		else
 		{
 			s_inf.elements = argc - 1;
-			if (create_stack(&stack_a, &s_inf, argv + 1) != 0)
+			if (create_stack(&stc_a, &s_inf, argv + 1) != 0)
 				return (1);
 		}
-		if (dup_check(&stack_a) || order_check(&stack_a))
-			input_error(&stack_a);
-		move(&stack_a, &stack_b);
-		free_stack(&stack_a);
-		free_stack(&stack_b);
+		if (dup_check(&stc_a) || order_check(&stc_a))
+			input_error(&stc_a, NULL);
+		sort_few(&stc_a, &stc_b, &s_inf);
+		// move(&stc_a, &stc_b);
+		// sa(&stc_a);
+		ft_putstr_fd("--A--\n", 1);
+		printer = stc_a;
+		while (printer)
+		{
+			ft_putnbr_fd(printer->val, STDOUT_FILENO);
+			ft_putchar_fd('\n', 1);
+			printer = printer->next;
+		}
+		free_stack(&stc_a);
+		free_stack(&stc_b);
 	}
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	return (0);
 }

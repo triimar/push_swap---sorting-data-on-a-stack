@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:29:08 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/25 17:03:53 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/04/30 19:03:15 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 // 3. ss : sa and sb at the same time.
 
-void	sa(t_stack **stack_a)
+void	sa(t_stc **stack_a)
 {
-	t_stack	*tmp;
+	t_stc	*tmp;
 
 	if ((*stack_a) && (*stack_a)->next)
 	{
@@ -33,9 +33,9 @@ void	sa(t_stack **stack_a)
 	}
 }
 
-void	sb(t_stack **stack_b)
+void	sb(t_stc **stack_b)
 {
-	t_stack	*tmp;
+	t_stc	*tmp;
 
 	if ((*stack_b) && (*stack_b)->next)
 	{
@@ -47,9 +47,9 @@ void	sb(t_stack **stack_b)
 	}
 }
 
-void	ss(t_stack **stack_a, t_stack **stack_b)
+void	ss(t_stc **stack_a, t_stc **stack_b)
 {
-	t_stack	*tmp;
+	t_stc	*tmp;
 
 	if ((*stack_a) && (*stack_a)->next)
 	{

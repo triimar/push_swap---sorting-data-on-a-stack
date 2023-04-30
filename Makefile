@@ -6,7 +6,7 @@
 #    By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 17:14:41 by tmarts            #+#    #+#              #
-#    Updated: 2023/04/29 15:28:45 by tmarts           ###   ########.fr        #
+#    Updated: 2023/04/30 19:13:53 by tmarts           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,15 @@ LIBS	= $(LIBFT)/libft.a
 SRC_DIR	= ./src/
 SRCS	= $(addprefix $(SRC_DIR)/,	\
 main.c \
+push_swap_init.c \
 push_swap_parsing.c \
 push_swap_errors.c \
 swap.c \
 push.c \
 rotate.c \
 reverse_rotate.c \
-push_swap_utils.c)
+push_swap_utils.c \
+push_swap_few.c)
 
 OBJS	= ${SRCS:.c=.o}
 

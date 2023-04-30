@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:28:28 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/29 15:22:35 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/04/30 19:03:15 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 // Do nothing if a is empty.
 
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stc **stack_a, t_stc **stack_b)
 {
-	t_stack	*tmp;
+	t_stc	*tmp;
 
 	if (*stack_b)
 	{
@@ -40,9 +40,9 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stc **stack_a, t_stc **stack_b)
 {
-	t_stack	*tmp;
+	t_stc	*tmp;
 
 	if (*stack_a)
 	{

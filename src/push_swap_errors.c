@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:48:29 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/30 19:03:15 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/02 18:42:54 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,4 @@ void	input_error(t_stc **stack_a, t_stc *new_node)
 	ft_putendl_fd("Error", 1);
 	exit(EXIT_FAILURE);
 }
+

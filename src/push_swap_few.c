@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:11:42 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/02 22:25:49 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/03 21:30:46 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,10 @@ static void	sort_three(t_stc **stc_a)
 
 static void	sort_four_five(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf)
 {
-// 	t_stc	*tail;
-// 	while (!order_check(stc_a))
-// 	{	
-// 		tail = get_tail(stc_a);
-// 		if ((*stc_a)->val > tail->val && \
-// 		(*stc_a)->val > (*stc_a)->next->val)
-// 			ra(stc_a);
-// 		if ((*stc_a)->val > (*stc_a)->next->val)
-// 			sa(stc_a);
-// 		if (order_check(stc_a))
-// 			break ;
-// 		pb(stc_a, stc_b);
-// 		sort_three(stc_a);
-// 		pa(stc_a, stc_b);
-// 	}
 	while ((*stc_a)->index >= 3)
 		ra(stc_a);
+	if (order_check(stc_a))
+		return ;
 	pb(stc_a, stc_b);
 	if (s_inf->elements == 5)
 	{
@@ -91,7 +78,7 @@ void	sort_few(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf)
 		sa(stc_a);
 	else if (s_inf->elements == 3)
 		sort_three(stc_a);
-	else if (s_inf->elements >= 4)
+	else if (s_inf->elements == 4 || s_inf->elements == 5)
 		sort_four_five(stc_a, stc_b, s_inf);
 	return ;
 }

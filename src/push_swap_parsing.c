@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:48:52 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/02 19:20:25 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/03 21:21:10 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	atoi_negative(char *c)
 		return (1);
 }
 
-static int	ft_pushswap_atoi(const char *str, int *data)
+static int	ft_ps_atoi(const char *str, int *data)
 {
 	int		intvalue;
 	int		neg_pos;
@@ -58,7 +58,6 @@ static void	ft_indexer(t_stc **stc_a, t_inf *inf, t_stc *tail, t_stc *new)
 		new->index = tail->index + 1;
 	else
 	{
-		// inf->in_order = 0;
 		modifier = *stc_a;
 		new->index = 1;
 		while (modifier)
@@ -72,24 +71,42 @@ static void	ft_indexer(t_stc **stc_a, t_inf *inf, t_stc *tail, t_stc *new)
 			modifier = modifier->next;
 		}
 	}
-	// if (inf->node_i == inf->elements - 1 && inf->in_order == 1)
-	// 	input_error(stc_a, new);
+}
+
+int	is_valid_input(char *str)
+{
+	char	*check;
+
+	check = str;
+	if (!(*str))
+		return (1);
+	if (check && (*check == '-' || *check == '+') && *(check + 1) != '\0')
+		check++;
+	while (*check != '\0')
+	{
+		if (!(*check >= '0' && *check <= '9'))
+			return (1);
+		check++;
+	}
+	return (0);
 }
 
 int	create_stack(t_stc **stack_a, t_inf *s_inf, char **argv)
 {
 	t_stc	*temp_tail;
 	t_stc	*new;
+	int		val;
 
 	temp_tail = NULL;
 	while (++s_inf->node_i <= s_inf->elements - 1)
 	{
+		if (!(argv[s_inf->node_i][0]) || ft_ps_atoi(argv[s_inf->node_i], &val))
+			input_error(stack_a, NULL);
 		new = malloc(sizeof(t_stc));
 		if (!new)
 			return (1);
-		if (ft_pushswap_atoi(argv[s_inf->node_i], &(new->val)))
-			input_error(stack_a, new);
 		new->next = NULL;
+		new->val = val;
 		ft_indexer(stack_a, s_inf, temp_tail, new);
 		if (*stack_a == NULL)
 		{
@@ -109,23 +126,19 @@ int	one_str_input(t_stc **stack_a, t_inf *s_inf, char *str)
 {
 	char	**split;
 	int		i;
-	int		j;
 
+	if (!(*str))
+		input_error(NULL, NULL);
 	i = -1;
 	split = ft_split(str, ' ');
 	if (!split)
 		return (1);
 	while (split[++i] != NULL)
 	{
-		j = -1;
-		while (split[i][++j] != '\0')
+		if (!(is_valid_input(split[i])))
 		{
-			if (!(ft_isdigit(split[i][j])) && split[i][j] != '-')
-			{
-				ft_free_pp(split);
-				ft_putendl_fd("Error", 1);
-				exit(EXIT_FAILURE);
-			}
+			ft_free_pp(split);
+			input_error(NULL, NULL);
 		}
 	}
 	s_inf->elements = i;
@@ -133,5 +146,3 @@ int	one_str_input(t_stc **stack_a, t_inf *s_inf, char *str)
 		return (ft_free_pp(split), 1);
 	return (ft_free_pp(split), 0);
 }
-
-

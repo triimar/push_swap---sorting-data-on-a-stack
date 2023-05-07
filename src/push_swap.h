@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:15:22 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/03 21:21:27 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/07 21:27:25 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ typedef struct s_inf
 {
 	int		elements;
 	int		node_i;
-	// int		in_order;
 }		t_inf;
 
 /*   push_swap_errors.c   */
 void	input_error(t_stc **stc_a, t_stc *new_node);
 /*   push_swap_init.c   */
 void	initiate_data(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf);
+void	ft_indexer(t_stc **stc_a, t_inf *inf, t_stc *tail, t_stc *new);
 /*   push_swap_parsing.c   */
 int		one_str_input(t_stc **stc_a, t_inf *s_inf, char *str);
 int		create_stack(t_stc **stc_a, t_inf *s_inf, char **argv);
@@ -58,6 +58,7 @@ void	rrr(t_stc **stc_a, t_stc **stc_b);
 int		order_check(t_stc **stack);
 void	sort_few(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf);
 /*   push_swap_utils.c   */
+int		is_valid_input(char *str);
 t_stc	*get_tail(t_stc **stack);
 void	free_stack(t_stc **stack);
 char	*ft_free_pp(char **p_p);

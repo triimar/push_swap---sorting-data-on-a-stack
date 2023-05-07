@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:11:42 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/03 21:30:46 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/07 20:07:54 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	sort_three(t_stc **stc_a)
 	t_stc	*a;
 
 	a = *stc_a;
+
 	while (!(order_check(stc_a)))
 	{
 		if (a->next->val > a->val && a->val > a->next->next->val)
@@ -44,24 +45,31 @@ static void	sort_three(t_stc **stc_a)
 	}
 }
 
-static void	sort_four_five(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf)
+static void	rotate_four_five(t_stc **stc_a)
 {
+	if ((*stc_a)->index >= 3 && (*stc_a)->next->index >= 3 \
+		&& (*stc_a)->next->next->index >= 3)
+		rra(stc_a);
 	while ((*stc_a)->index >= 3)
 		ra(stc_a);
+}
+
+static void	sort_four_five(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf)
+{
+	rotate_four_five(stc_a);
 	if (order_check(stc_a))
 		return ;
-	pb(stc_a, stc_b);
 	if (s_inf->elements == 5)
 	{
-		while ((*stc_a)->index >= 3)
-			ra(stc_a);
-		if (s_inf->elements == 5)
-			pb(stc_a, stc_b);
+		pb(stc_a, stc_b);
+		rotate_four_five(stc_a);
 	}
-	sort_three(stc_a);
-	pa(stc_a, stc_b);
-	if ((*stc_a)->index >= 3)
-		ra(stc_a);
+	if (!order_check(&(*stc_a)->next))
+	{
+		pb(stc_a, stc_b);
+		sort_three(stc_a);
+		pa(stc_a, stc_b);
+	}
 	if ((*stc_a)->index > (*stc_a)->next->index)
 		sa(stc_a);
 	if (s_inf->elements == 5)

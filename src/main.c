@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:16:12 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/03 21:20:09 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/07 20:57:18 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ int	main(int argc, char **argv)
 		if (argc == 2)
 		{
 			if (one_str_input(&stc_a, &s_inf, argv[1]) != 0)
-				return (1);
+				return (EXIT_FAILURE);
 		}
 		else
 		{
 			s_inf.elements = argc - 1;
 			if (create_stack(&stc_a, &s_inf, argv + 1) != 0)
-				return (1);
+				return (EXIT_FAILURE);
 		}
 		// printer = stc_a;
 		// while (printer)
@@ -74,5 +74,5 @@ int	main(int argc, char **argv)
 		free_stack(&stc_a);
 		free_stack(&stc_b);
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:15:22 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/07 21:27:25 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/10 00:03:53 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,7 @@ int		is_valid_input(char *str);
 t_stc	*get_tail(t_stc **stack);
 void	free_stack(t_stc **stack);
 char	*ft_free_pp(char **p_p);
+/*   push_swap.c   */
+void	sorter(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf);
+
 #endif

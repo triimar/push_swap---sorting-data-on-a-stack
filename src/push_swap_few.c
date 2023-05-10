@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:11:42 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/07 20:07:54 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/09 21:11:21 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static void	sort_three(t_stc **stc_a)
 	t_stc	*a;
 
 	a = *stc_a;
-
 	while (!(order_check(stc_a)))
 	{
 		if (a->next->val > a->val && a->val > a->next->next->val)

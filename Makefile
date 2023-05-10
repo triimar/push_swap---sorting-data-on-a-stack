@@ -6,7 +6,7 @@
 #    By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 17:14:41 by tmarts            #+#    #+#              #
-#    Updated: 2023/05/02 22:41:53 by tmarts           ###   ########.fr        #
+#    Updated: 2023/05/09 18:12:23 by tmarts           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ push.c \
 rotate.c \
 reverse_rotate.c \
 push_swap_utils.c \
-push_swap_few.c)
+push_swap_few.c \
+push_swap.c)
 
 OBJS	= ${SRCS:.c=.o}
 

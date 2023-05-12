@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:15:22 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/10 00:03:53 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/12 21:51:51 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ typedef struct s_inf
 {
 	int		elements;
 	int		node_i;
+	int		curr_i;
+	int		chunk_const;
+	int		chunk_s;
+	int		min_i;
+	int		max_i;
 }		t_inf;
 
 /*   push_swap_errors.c   */
@@ -64,5 +69,7 @@ void	free_stack(t_stc **stack);
 char	*ft_free_pp(char **p_p);
 /*   push_swap.c   */
 void	sorter(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf);
+void	radix_sorter(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf);
+void	pre_sorter(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf);
 
 #endif

@@ -6,33 +6,11 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:16:12 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/10 00:04:13 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/12 21:52:22 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <math.h>
-void	move(t_stc **stc_a, t_stc **stc_b)
-{
-	t_stc	*printer;
-
-	ft_putstr_fd("--A--\n", 1);
-		printer = *stc_a;
-	while (printer)
-	{
-		ft_putnbr_fd(printer->val, STDOUT_FILENO);
-		ft_putchar_fd('\n', 1);
-		printer = printer->next;
-	}
-	pb(stc_a, stc_b);
-	pb(stc_a, stc_b);
-	sb(stc_b);
-	pb(stc_a, stc_b);
-	sa(stc_a);
-	pa(stc_a, stc_b);
-	pa(stc_a, stc_b);
-	pa(stc_a, stc_b);
-}
 
 int	main(int argc, char **argv)
 {
@@ -62,10 +40,16 @@ int	main(int argc, char **argv)
 		// 	ft_putchar_fd('\n', 1);
 		// 	printer = printer->next;
 		// }
+		if (order_check(&stc_a))
+			return (EXIT_SUCCESS);
 		if (s_inf.elements > 1 && s_inf.elements < 6)
 			sort_few(&stc_a, &stc_b, &s_inf);
 		else
+		{
+			pre_sorter(&stc_a, &stc_b, &s_inf);
 			sorter(&stc_a, &stc_b, &s_inf);
+		}
+
 		// ft_putstr_fd("--A--\n", 1);
 		// printer = stc_a;
 		// while (printer)

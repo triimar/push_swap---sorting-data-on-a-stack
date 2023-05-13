@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:16:12 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/12 21:52:22 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/14 00:32:30 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,14 @@ int	main(int argc, char **argv)
 			return (EXIT_SUCCESS);
 		if (s_inf.elements > 1 && s_inf.elements < 6)
 			sort_few(&stc_a, &stc_b, &s_inf);
+		// if (s_inf.elements >= 500)
+		// 	radix_sorter(&stc_a, &stc_b, &s_inf);
+		
 		else
 		{
 			pre_sorter(&stc_a, &stc_b, &s_inf);
 			sorter(&stc_a, &stc_b, &s_inf);
+			// radix_sorter(&stc_a, &stc_b, &s_inf);
 		}
 
 		// ft_putstr_fd("--A--\n", 1);
@@ -71,6 +75,7 @@ int	main(int argc, char **argv)
 		// ft_putchar_fd(' ', 1);
 		free_stack(&stc_a);
 		free_stack(&stc_b);
+		// system("leaks push_swap");
 	}
 	return (EXIT_SUCCESS);
 }

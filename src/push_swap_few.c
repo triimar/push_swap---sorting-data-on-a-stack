@@ -6,27 +6,13 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 17:11:42 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/10 19:13:10 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/14 17:14:20 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	order_check(t_stc **stack)
-{
-	t_stc	*checker;
-
-	checker = *stack;
-	while (checker->next)
-	{
-		if (checker->val > checker->next->val)
-			return (0);
-		checker = checker->next;
-	}
-	return (1);
-}
-
-static void	sort_three(t_stc **stc_a)
+void	sort_three(t_stc **stc_a)
 {
 	t_stc	*a;
 
@@ -53,7 +39,7 @@ static void	rotate_four_five(t_stc **stc_a)
 		ra(stc_a);
 }
 
-static void	sort_four_five(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf)
+void	sort_four_five(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf)
 {
 	rotate_four_five(stc_a);
 	if (s_inf->elements == 5)
@@ -75,15 +61,4 @@ static void	sort_four_five(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf)
 		if ((*stc_a)->index > (*stc_a)->next->index)
 			sa(stc_a);
 	}
-}
-
-void	sort_few(t_stc **stc_a, t_stc **stc_b, t_inf *s_inf)
-{
-	if (s_inf->elements == 2)
-		sa(stc_a);
-	else if (s_inf->elements == 3)
-		sort_three(stc_a);
-	else if (s_inf->elements == 4 || s_inf->elements == 5)
-		sort_four_five(stc_a, stc_b, s_inf);
-	return ;
 }

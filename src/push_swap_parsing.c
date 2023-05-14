@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:48:52 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/09 21:13:30 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/14 18:02:10 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ static t_stc	*new_tail(t_stc **stack_a, t_stc *tail, t_stc *new)
 	return (tail);
 }
 
-
 int	create_stack(t_stc **stack_a, t_inf *s_inf, char **argv)
 {
 	t_stc	*temp_tail;
@@ -77,7 +76,7 @@ int	create_stack(t_stc **stack_a, t_inf *s_inf, char **argv)
 			input_error(stack_a, NULL);
 		new = malloc(sizeof(t_stc));
 		if (!new)
-			return (free_stack(stack_a), EXIT_FAILURE);
+			return (free_stacks(stack_a, NULL), EXIT_FAILURE);
 		new->next = NULL;
 		new->val = val;
 		ft_indexer(stack_a, s_inf, temp_tail, new);

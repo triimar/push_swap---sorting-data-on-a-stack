@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 18:16:04 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/07 21:10:27 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/14 18:03:01 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,20 @@ int	is_valid_input(char *str)
 	return (1);
 }
 
+int	order_check(t_stc **stack)
+{
+	t_stc	*checker;
+
+	checker = *stack;
+	while (checker->next)
+	{
+		if (checker->val > checker->next->val)
+			return (0);
+		checker = checker->next;
+	}
+	return (1);
+}
+
 t_stc	*get_tail(t_stc **stack)
 {
 	t_stc	*tail;
@@ -38,21 +52,6 @@ t_stc	*get_tail(t_stc **stack)
 	while (tail->next)
 		tail = tail->next;
 	return (tail);
-}
-
-void	free_stack(t_stc **stack)
-{
-	t_stc	*tmp;
-
-	if (stack)
-	{
-		while (*stack)
-		{
-			tmp = (*stack)->next;
-			free(*stack);
-			*stack = tmp;
-		}
-	}
 }
 
 char	*ft_free_pp(char **p_p)
@@ -69,4 +68,28 @@ char	*ft_free_pp(char **p_p)
 	}
 	free (p_p);
 	return (NULL);
+}
+
+void	free_stacks(t_stc **stack_a, t_stc **stack_b)
+{
+	t_stc	*tmp;
+
+	if (stack_a)
+	{
+		while (*stack_a)
+		{
+			tmp = (*stack_a)->next;
+			free(*stack_a);
+			*stack_a = tmp;
+		}
+	}
+	if (stack_b)
+	{
+		while (*stack_b)
+		{
+			tmp = (*stack_b)->next;
+			free(*stack_b);
+			*stack_b = tmp;
+		}
+	}
 }

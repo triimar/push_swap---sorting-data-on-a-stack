@@ -6,7 +6,7 @@
 #    By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 17:14:41 by tmarts            #+#    #+#              #
-#    Updated: 2023/05/15 21:10:07 by tmarts           ###   ########.fr        #
+#    Updated: 2023/05/15 21:55:17 by tmarts           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,23 @@ push_swap.c)
 
 SRC_B_DIR = ./bonus/
 SRCS_B	= $(addprefix $(SRC_B_DIR)/,\
+main.c \
+checker_init.c \
+checker_parsing.c \
+checker_errors.c \
+swap.c \
+push.c \
+rotate.c \
+reverse_rotate.c \
+checker_utils.c \
+checker.c)
 
 OBJS	= ${SRCS:.c=.o}
+OBJS_B	= ${SRCS_B:.c=.o}
 
 all: libft $(NAME)
+
+bonus: $(NAME_B)
 
 libft:
 	@$(MAKE) -C $(LIBFT)
@@ -53,12 +66,15 @@ libft:
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME) ${LDFLAGS}
 
+$(NAME_B): $(OBJS_B)
+	@$(CC) $(OBJS_B) $(LIBS) $(HEADERS) -o $(NAME_B) ${LDFLAGS}
+
 clean:
-	@rm -f $(OBJS)
+	@rm -f $(OBJS) $(OBJS_B)
 	@$(MAKE) -C $(LIBFT) fclean
 
 fclean:	clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME_B)
 	
 re: fclean all
 

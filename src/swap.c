@@ -6,18 +6,11 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 18:29:08 by tmarts            #+#    #+#             */
-/*   Updated: 2023/04/30 19:03:15 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/15 22:02:42 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// 1. sa (swap a): Swap the first 2 elements at the top of stack a.
-// Do nothing if there is only one or no elements.
-
-// 2. sb (swap b): Swap the first 2 elements at the top of stack b.
-// Do nothing if there is only one or no elements.
-
-// 3. ss : sa and sb at the same time.
 
 void	sa(t_stc **stack_a)
 {

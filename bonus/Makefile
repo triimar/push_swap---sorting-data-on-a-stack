@@ -6,39 +6,30 @@
 #    By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 17:14:41 by tmarts            #+#    #+#              #
-#    Updated: 2023/05/15 21:10:07 by tmarts           ###   ########.fr        #
+#    Updated: 2023/05/15 18:52:58 by tmarts           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= push_swap
-NAME_B = checker
-
+NAME	= checker
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 CFLAGS += -fsanitize=address -g3
 LDFLAGS = -lm
 LDFLAGS += -fsanitize=address -g3
-LIBFT	= ./libft
+LIBFT	= ../libft
 HEADERS = -I $(LIBFT)
 LIBS	= $(LIBFT)/libft.a
-
-SRC_DIR	= ./src/
-SRCS	= $(addprefix $(SRC_DIR)/,	\
-main.c \
-push_swap_init.c \
-push_swap_parsing.c \
-push_swap_errors.c \
+SRCS	= main.c \
+checker_init.c \
+checker_parsing.c \
+checker_errors.c \
 swap.c \
 push.c \
 rotate.c \
 reverse_rotate.c \
-push_swap_utils.c \
-push_swap_few.c \
-push_swap_many.c \
-push_swap.c)
+checker_utils.c \
+checker.c
 
-SRC_B_DIR = ./bonus/
-SRCS_B	= $(addprefix $(SRC_B_DIR)/,\
 
 OBJS	= ${SRCS:.c=.o}
 

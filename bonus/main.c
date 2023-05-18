@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_main.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:16:12 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/15 18:40:30 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/16 18:48:35 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 				return (EXIT_FAILURE);
 		}
 		if (order_check(&stc_a))
-			return (EXIT_SUCCESS);
+			ft_putendl_fd("OK", STDOUT_FILENO);
 		else
 			checker(&stc_a, &stc_b);
 		free_stacks(&stc_a, &stc_b);

@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 21:48:52 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/14 18:02:10 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/18 13:52:32 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	one_str_input(t_stc **stack_a, t_inf *s_inf, char *str)
 	i = -1;
 	split = ft_split(str, ' ');
 	if (!split)
-		return (EXIT_FAILURE);
+		input_error(NULL, NULL);
 	while (split[++i] != NULL)
 	{
 		if (!(is_valid_input(split[i])))

@@ -6,7 +6,7 @@
 /*   By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:16:12 by tmarts            #+#    #+#             */
-/*   Updated: 2023/05/14 21:31:52 by tmarts           ###   ########.fr       */
+/*   Updated: 2023/05/16 18:46:50 by tmarts           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int	main(int argc, char **argv)
 			if (create_stack(&stc_a, &s_inf, argv + 1) != 0)
 				return (EXIT_FAILURE);
 		}
-		if (order_check(&stc_a))
-			return (EXIT_SUCCESS);
-		else
+		if (!order_check(&stc_a))
 			sort(&stc_a, &stc_b, &s_inf);
 		free_stacks(&stc_a, &stc_b);
 	}

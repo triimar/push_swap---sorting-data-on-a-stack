@@ -6,7 +6,7 @@
 #    By: tmarts <tmarts@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 17:14:41 by tmarts            #+#    #+#              #
-#    Updated: 2023/05/15 21:55:17 by tmarts           ###   ########.fr        #
+#    Updated: 2023/05/18 14:12:36 by tmarts           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ HEADERS = -I $(LIBFT)
 LIBS	= $(LIBFT)/libft.a
 
 SRC_DIR	= ./src/
-SRCS	= $(addprefix $(SRC_DIR)/,	\
+SRCS	= $(addprefix $(SRC_DIR),	\
 main.c \
 push_swap_init.c \
 push_swap_parsing.c \
@@ -38,7 +38,7 @@ push_swap_many.c \
 push_swap.c)
 
 SRC_B_DIR = ./bonus/
-SRCS_B	= $(addprefix $(SRC_B_DIR)/,\
+SRCS_B	= $(addprefix $(SRC_B_DIR),\
 main.c \
 checker_init.c \
 checker_parsing.c \

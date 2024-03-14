@@ -1,4 +1,4 @@
-## push_swap---sorting-data-on-a-stack
+# push_swap---sorting-data-on-a-stack
 
 ### Overview
 

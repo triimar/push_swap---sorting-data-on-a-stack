@@ -29,7 +29,7 @@ The goal of `push_swap` is to sort data on a stack with a limited set of instruc
 The `bonus` feature includes a `checker` for `push_swap`, a program that validates the actions listed by `push_swap`.
 
 
-### Running the Programs
+### Running the Program(s)
 
 - **./push_swap \<input integers separated with spaces\>**: Runs the sorting algorithm.
 
